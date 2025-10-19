@@ -3,37 +3,250 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tainah Aquino</title>
+    <title>Tainah Aquino — Translator EN/ES → PT-BR</title>
     <style>
+      html {
+        scroll-behavior: smooth;
+      }
+
       body {
-        font-family: Arial, sans-serif;
-        background: #eef3f8;
-        color: #333;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        background-color: #e7f7f2;
+        color: #000;
         margin: 0;
         padding: 0;
+        line-height: 1.6;
+        font-size: 16px; /* base font size for rem calculations */
       }
+
+      /* Navigation Bar */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: rgba(231, 247, 242, 0.95);
+        backdrop-filter: blur(0.31rem); /* 5px to rem */
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        padding: 1rem;
+        z-index: 1000;
+        transition: background 0.3s;
+      }
+
+      nav a {
+        text-decoration: none;
+        color: #000;
+        font-weight: bold;
+        transition: color 0.3s, transform 0.3s;
+      }
+
+      nav a:hover {
+        color: #066a55;
+        transform: scale(1.05);
+      }
+
+      /* Header */
       header {
         text-align: center;
-        padding: 3rem 1rem;
+        padding: 5rem 1rem 2.5rem 1rem; /* 8rem -> 5rem top, 4rem -> 2.5rem bottom approx */
       }
-      section {
-        max-width: 800px;
-        margin: auto;
-        padding: 1rem;
-      }
-      .project {
-        background: #f5f7fa;
-        border-radius: 12px;
-        padding: 1rem;
+
+      header img {
+        width: 10rem; /* 160px -> 10rem */
+        height: 10rem;
+        border-radius: 50%;
+        object-fit: cover;
         margin-bottom: 1rem;
+      }
+
+      header h1 {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+      }
+
+      header p {
+        font-size: 1.1rem;
+      }
+
+      /* Sections */
+      section {
+        max-width: 56.25rem; /* 900px */
+        margin: 2.5rem auto; /* 4rem -> 2.5rem */
+        padding: 0 1rem;
+      }
+
+      section h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+      }
+
+      /* Tags (specializations) */
+      .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.375rem; /* 0.6rem -> ~0.375rem */
+        margin-top: 1rem;
+        opacity: 0;
+        transform: translateY(1.25rem); /* 20px -> 1.25rem */
+        animation: fadeInUp 1s forwards 0.3s;
+      }
+
+      .tag {
+        background-color: #d2efe6;
+        color: #000;
+        border-radius: 1.25rem; /* 20px -> 1.25rem */
+        padding: 0.3125rem 0.625rem; /* 0.5rem 1rem -> smaller */
+        font-size: 0.9rem;
+        cursor: default;
+        transition: background-color 0.3s;
+      }
+
+      .tag:hover {
+        background-color: #bde5d7;
+      }
+
+      /* Portfolio */
+      .portfolio-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(15.625rem, 1fr)); /* 250px -> 15.625rem */
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+
+      .portfolio-grid img {
+        width: 100%;
+        border-radius: 0.625rem; /* 10px -> 0.625rem */
+        transition: transform 0.3s ease, opacity 0.5s ease;
+        opacity: 0;
+        transform: translateY(1.25rem);
+        animation: fadeInUp 1s forwards;
+      }
+
+      .portfolio-grid img:nth-child(1) { animation-delay: 0.3s; }
+      .portfolio-grid img:nth-child(2) { animation-delay: 0.5s; }
+      .portfolio-grid img:nth-child(3) { animation-delay: 0.7s; }
+      .portfolio-grid img:nth-child(4) { animation-delay: 0.9s; }
+
+      /* Contact section */
+      .contact-icons {
+        display: flex;
+        justify-content: center;
+        align-items: center; /* ensures vertical alignment */
+        gap: 1.25rem;
+        margin-top: 1.25rem;
+      }
+
+      .contact-icons img {
+        width: 3.125rem;  /* 50px -> 3.125rem */
+        height: auto;      /* let height scale proportionally */
+        transition: transform 0.3s ease;
+      }
+
+      
+      .contact-icons img:hover {
+        transform: scale(1.1);
+      }
+ 
+      .contact-icons a:first-child img {
+        width: 3.75rem; /* 10% bigger email icon */
+      }
+
+
+      footer {
+        text-align: center;
+        padding: 1.25rem 1rem; /* 2rem -> 1.25rem */
+        font-size: 0.9rem;
+        color: #333;
+      }
+
+      /* Animations */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(1.25rem);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (max-width: 37.5em) { /* 600px -> 37.5em */
+        header { padding: 3.75rem 1rem 1.875rem 1rem; } /* top: 6rem->3.75, bottom 3rem->1.875 */
+        nav { gap: 1rem; font-size: 0.9rem; }
       }
     </style>
   </head>
+
   <body>
+    <nav>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#about">About Me</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
     <header>
+      <img src="https://via.placeholder.com/160" alt="Tainah Aquino photo" />
+      <h1>Tainah Aquino</h1>
+      <p>Translator — English & Spanish to Brazilian Portuguese</p>
     </header>
 
-    <section>
+    <section id="about">
+      <h2>About Me</h2>
+      <p>
+        I am a professional translator specializing in English and Spanish to
+        Brazilian Portuguese. I work on a variety of projects, from audiovisual
+        subtitling to literary translation, ensuring linguistic accuracy and
+        cultural authenticity. I’m passionate about language, storytelling, and
+        helping global voices connect with Brazilian audiences.
+      </p>
+
+      <div class="tags">
+        <div class="tag">Audiovisual Subtitling</div>
+        <div class="tag">Game Localization</div>
+        <div class="tag">Book Translation</div>
+      </div>
     </section>
+
+    <section id="portfolio">
+      <h2>Portfolio</h2>
+      <div class="portfolio-grid">
+        <img src="https://upload.wikimedia.org/wikipedia/pt/6/6b/Hercai.jpg" alt="Project 1" />
+        <img src="https://upload.wikimedia.org/wikipedia/pt/4/40/Dolunay_official_poster.jpg" alt="Project 2" />
+        <img src="https://upload.wikimedia.org/wikipedia/pt/6/6b/Hercai.jpg" alt="Project 1" />
+        <img src="https://upload.wikimedia.org/wikipedia/pt/6/6b/Hercai.jpg" alt="Project 1" />
+        <img src="https://upload.wikimedia.org/wikipedia/pt/6/6b/Hercai.jpg" alt="Project 1" />
+        <img src="https://upload.wikimedia.org/wikipedia/pt/6/6b/Hercai.jpg" alt="Project 1" />
+        <img src="https://upload.wikimedia.org/wikipedia/pt/6/6b/Hercai.jpg" alt="Project 1" />
+        <img src="https://upload.wikimedia.org/wikipedia/pt/6/6b/Hercai.jpg" alt="Project 1" />
+        <img src="https://upload.wikimedia.org/wikipedia/pt/6/6b/Hercai.jpg" alt="Project 1" />
+        <img src="https://upload.wikimedia.org/wikipedia/pt/6/6b/Hercai.jpg" alt="Project 1" />
+        <img src="https://upload.wikimedia.org/wikipedia/pt/6/6b/Hercai.jpg" alt="Project 1" />
+        <img src="https://upload.wikimedia.org/wikipedia/pt/6/6b/Hercai.jpg" alt="Project 1" />
+        <img src="https://upload.wikimedia.org/wikipedia/pt/6/6b/Hercai.jpg" alt="Project 1" />
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <div class="contact-icons">
+        <a href="mailto:tainah.aquino@example.com" title="Email">
+          <img src="https://cdn-icons-png.flaticon.com/512/59/59547.png" alt="Email icon" class="email-logo" />
+        </a>
+        <a href="https://www.linkedin.com/in/tainah-aquino/" target="_blank" title="LinkedIn">
+          <img src="https://images.seeklogo.com/logo-png/37/2/linkedin-icon-logo-png_seeklogo-379483.png" alt="LinkedIn icon" />
+        </a>
+      </div>      
+    </section>
+
+    <footer>
+      © <span id="year"></span> Tainah Aquino — All rights reserved.
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
   </body>
 </html>
